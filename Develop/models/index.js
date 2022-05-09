@@ -15,13 +15,13 @@ Product.belongsTo(Category, {foreignKey: 'category_id'});
 // Products belongToMany Tags (through ProductTag)
 
 Product.belongsToMany(Tag, {through: ProductTag,
-  as : 'voted_products',
-foriegnKey: 'product_id'} );
+  as : 'product_tags',
+foriegnKey: 'tag_id'} );
 
 // Tags belongToMany Products (through ProductTag)
 Tag.belongsToMany(Product, {through: ProductTag,
-as: 'Product_tags',
-foreignKey: 'tag_id'});
+as: 'tagged_products',
+foreignKey: 'product_id'});
 
 
 module.exports = {
