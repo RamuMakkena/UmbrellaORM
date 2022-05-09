@@ -16,12 +16,12 @@ Product.belongsTo(Category, {foreignKey: 'category_id'});
 
 Product.belongsToMany(Tag, {through: ProductTag,
   as : 'product_tags',
-foriegnKey: 'tag_id'} );
+foriegnKey: 'product_id'} );
 
 // Tags belongToMany Products (through ProductTag)
 Tag.belongsToMany(Product, {through: ProductTag,
 as: 'tagged_products',
-foreignKey: 'product_id'});
+foreignKey: 'tag_id'});
 
 
 module.exports = {

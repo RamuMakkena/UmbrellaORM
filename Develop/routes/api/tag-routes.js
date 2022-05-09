@@ -51,7 +51,7 @@ router.post('/', (req, res) => {
   // create a new tag
   Tag.create({
     tag_name: req.body.tag_name
-  }).then(dbCategoriesData => res.json(dbCategoriesData))
+  }).then(dbCategoriesData => res.json(`${dbCategoriesData} row(s) inserted`))
   .catch(err => {
     console.log(err);
     res.status(500).json(err);
@@ -66,7 +66,7 @@ router.put('/:id', (req, res) => {
     where : {
       id: req.params.id
     }
-  }).then(dbCategoriesData => res.json(dbCategoriesData))
+  }).then(dbCategoriesData => res.json(`${dbCategoriesData} row(s) udpated`))
   .catch(err => {
     console.log(err);
     res.status(500).json(err);
@@ -80,7 +80,7 @@ router.delete('/:id', (req, res) => {
     where : {
       id: req.params.id
     }
-  }).then(dbCategoriesData => res.json(dbCategoriesData))
+  }).then(dbCategoriesData => res.json(`${dbCategoriesData} rows deleted`))
   .catch(err => {
     console.log(err);
     res.status(500).json(err);

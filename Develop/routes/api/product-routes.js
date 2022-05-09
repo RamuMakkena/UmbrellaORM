@@ -123,7 +123,7 @@ router.put('/:id', (req, res) => {
         ProductTag.bulkCreate(newProductTags),
       ]);
     })
-    .then((updatedProductTags) => res.json(updatedProductTags))
+    .then((updatedProductTags) => res.json(`${updatedProductTags} rows updated`))
     .catch((err) => {
       // console.log(err);
       res.status(400).json(err);
@@ -135,7 +135,7 @@ router.delete('/:id', (req, res) => {
     where : {
       id: req.params.id
     }
-  }).then(dbCategoriesData => res.json(dbCategoriesData))
+  }).then(dbCategoriesData => res.json(`${dbCategoriesData} rows deleted`))
   .catch(err => {
     console.log(err);
     res.status(500).json(err);

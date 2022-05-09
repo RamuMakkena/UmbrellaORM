@@ -43,7 +43,7 @@ router.post('/', (req, res) => {
   // create a new category
   Category.create({
     category_name: req.body.category_name
-  }).then(dbUserData => res.json(dbUserData))
+  }).then(dbUserData => res.json(`${dbUserData} rows(s) inserted`))
   .catch(err => {
     console.log(err);
     res.status(500).json(err);
@@ -56,7 +56,7 @@ router.put('/:id', (req, res) => {
     where : {
       id : req.params.id
     }
-  }).then(dbUserData => res.json(dbUserData))
+  }).then(dbUserData => res.json(`${dbUserData} row(s) updated`))
   .catch(err => {
     console.log(err);
     res.status(500).json(err);
@@ -69,7 +69,7 @@ router.delete('/:id', (req, res) => {
     where : {
       id : req.params.id
     }
-  }).then(dbUserData => res.json(dbUserData))
+  }).then(dbUserData => res.json(`${dbUserData} rows deleted`))
   .catch(err => {
     console.log(err);
     res.status(500).json(err);
